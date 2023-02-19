@@ -8,6 +8,6 @@ cat queries.sql | while read query; do
 
     echo "$query";
     for i in $(seq 1 $TRIES); do
-        time sqlite3 mydb <<< "${query}"
+        time sqlite3 -init sqliterc mydb <<< "${query}"
     done;
 done;
